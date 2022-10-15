@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Manchester United",
+        "location": "Manchester",
+        "manager": "Ole Gunnar Solskjaer",
+        "stadium": "Old Trafford",
+        "capacity": 76212,
+        "league": "Premier League"
+    },
+    {
+        "name": "Liverpool",
+        "location": "Liverpool",
+        "manager": "Jurgen Klopp",
+        "stadium": "Anfield",
+        "capacity": 54074,
+        "league": "Premier League"
+    },
+    {
+        "name": "Chelsea",
+        "location": "London",
+        "manager": "Thomas Tuchel",
+        "stadium": "Stamford Bridge",
+        "capacity": 42055,
+        "league": "Premier League"
+    },
+    {
+        "name": "Arsenal",
+        "location": "London",
+        "manager": "Mikel Arteta",
+        "stadium": "Emirates Stadium",
+        "capacity": 60355,
+        "league": "Premier League"
+    },
+    {
+        "name": "Tottenham Hotspur",
+        "location": "London",
+        "manager": "Jose Mourinho",
+        "stadium": "Tottenham Hotspur Stadium",
+        "capacity": 62062,
+        "league": "Premier League"
+    },
+    {
+        "name": "Manchester City",
+        "location": "Manchester",
+        "manager": "Pep Guardiola",
+        "stadium": "Etihad Stadium",
+        "capacity": 55097,
+        "league": "Premier League"
+    },
+    {
+        "name": "Leicester City",
+        "location": "Leicester",
+        "manager": "Brendan Rodgers",
+        "stadium": "King Power Stadium",
+        "capacity": 32262,
+        "league": "Premier League"
+    },
+    {
+        "name": "Everton",
+        "location": "Liverpool",
+        "manager": "Carlo Ancelotti",
+        "stadium": "Goodison Park",
+        "capacity": 39578,
+        "league": "Premier League"
+    },
+    {
+        "name": "West Ham United",
+        "location": "London",
+        "manager": "David Moyes",
+        "stadium": "London Stadium",
+        "capacity": 60000,
+        "league": "Premier League"
+    },
+    {
+        "name": "Leeds United",
+        "location": "Leeds",
+        "manager": "Marcelo Bielsa",
+        "stadium": "Elland Road",
+        "capacity": 37700,
+        "league": "Premier League"
+    },
+    {
+        "name": "Wolverhampton Wanderers",
+        "location": "Wolverhampton",
+        "manager": "Nuno Espirito Santo",
+        "stadium": "Molineux Stadium",
+        "capacity": 31700,
+        "league": "Premier League"
+    },
+    {
+        "name": "Aston Villa",
+        "location": "Birmingham",
+        "manager": "Dean Smith",
+        "stadium": "Villa Park",
+        "capacity": 42788,
+        "league": "Premier League"
+    },
+    {
+        "name": "Crystal Palace",
+        "location": "London",
+        "manager": "Patrick Vieira",
+        "stadium": "Selhurst Park",
+        "capacity": 26300,
+        "league": "Premier League"
+    },
+    {
+        "name": "Southampton",
+        "location": "Southampton",
+        "manager": "Ralph Hasenhuttl",
+        "stadium": "St. Mary's Stadium",
+        "capacity": 32689,
+        "league": "Premier League"
+    },
+    {
+        "name": "Newcastle United",
+        "location": "Newcastle upon Tyne",
+        "manager": "Steve Bruce",
+        "stadium": "St. James' Park",
+        "capacity": 52389,
+        "league": "Premier League"
+    },
+    {
+        "name": "Brighton & Hove Albion",
+        "location": "Brighton",
+        "manager": "Graham Potter",
+        "stadium": "American Express Community Stadium",
+        "capacity": 30750,
+        "league": "Premier League"
+    },
+    {
+        "name": "Burnley",
+        "location": "Burnley",
+        "manager": "Sean Dyche",
+        "stadium": "Turf Moor",
+        "capacity": 22500,
+        "league": "Premier League"
+    },
+    {
+        "name": "Fulham",
+        "location": "London",
+        "manager": "Scott Parker",
+        "stadium": "Craven Cottage",
+        "capacity": 25700,
+        "league": "Premier League"
+    },
+    {
+        "name": "West Bromwich Albion",
+        "location": "West Bromwich",
+        "manager": "Sam Allardyce",
+        "stadium": "The Hawthorns",
+        "capacity": 26000,
+        "league": "Premier League"
+    },
+    {
+        "name": "Sheffield United",
+        "location": "Sheffield",
+        "manager": "Chris Wilder",
+        "stadium": "Bramall Lane",
+        "capacity": 32700,
+        "league": "Premier League"
+    }
+]
