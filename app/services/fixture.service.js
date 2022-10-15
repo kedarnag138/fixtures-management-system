@@ -1,6 +1,7 @@
 'use strict';
 
 const { sequelize } = require("../models");
+const fixture = require("../models/fixture");
 
 class FixtureService {
     constructor(sequelize) {
@@ -8,9 +9,19 @@ class FixtureService {
         this.models = sequelize.models;
     }
 
-    async findAll() {
+    async findAll(date) {
         let fixtures = [];
-        let allFixtures = await this.models.Fixture.findAll();
+        let allFixtures;
+
+        if (date) {
+            allFixtures = await this.models.Fixture.findAll({
+                where: {
+                    date: date
+                }
+            });
+        } else {
+            allFixtures = await this.models.Fixture.findAll();
+        }
 
         let liveFixtures = await this.getLiveFixtures(allFixtures.filter(fixture => fixture.matchStatus === 'live'));
         let upcomingFixtures = await this.getUpcomingFixtures(allFixtures.filter(fixture => fixture.matchStatus === 'upcoming'));
@@ -44,6 +55,8 @@ class FixtureService {
                     ['time', 'DESC']
                 ],
             });
+            liveFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: liveFixture.homeTeamId } }).then((team) => {return team.name});
+            liveFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: liveFixture.awayTeamId } }).then((team) => {return team.name});
             return liveFixture;
         }));
         return this.sortFixtures(liveFixtures);
@@ -56,6 +69,8 @@ class FixtureService {
                     id: fixture.id
                 },
             });
+            upcomingFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: upcomingFixture.homeTeamId } }).then((team) => {return team.name});
+            upcomingFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: upcomingFixture.awayTeamId } }).then((team) => {return team.name});
             return upcomingFixture;
         }));
         return this.sortFixtures(upcomingFixtures);
@@ -72,6 +87,8 @@ class FixtureService {
                     ['time', 'DESC']
                 ],
             });
+            finishedFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: finishedFixture.homeTeamId } }).then((team) => {return team.name});
+            finishedFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: finishedFixture.awayTeamId } }).then((team) => {return team.name});
             return finishedFixture;
         }));
         return this.sortFixtures(finishedFixtures);

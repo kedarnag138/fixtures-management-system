@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.STRING,
     referee: DataTypes.STRING,
     matchStatus: DataTypes.STRING, // 'upcoming', 'live', 'finished'
-    venue: DataTypes.STRING
+    venue: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Fixture',

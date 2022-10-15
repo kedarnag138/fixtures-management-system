@@ -6,9 +6,10 @@ const fixtureValidator = require('../../../validators/fixture.validator');
 
 const fixtureService = new FixtureService(Models.sequelize);
 
-module.exports.all = async (_req, res) => {
+module.exports.all = async (req, res) => {
+    let date = req.query.date || null; 
     try {
-        let fixtures = await fixtureService.findAll();
+        let fixtures = await fixtureService.findAll(date);
         res.status(200).json(
             {
                 "statusCode": 200,
