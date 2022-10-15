@@ -1,21 +1,31 @@
 'use strict';
 
 const FixtureService = require('../../../services/fixture.service');
+const PaginationService = require('../../../services/pagination.service');
 const Models = require('../../../models/index');
 const fixtureValidator = require('../../../validators/fixture.validator');
 
 const fixtureService = new FixtureService(Models.sequelize);
+const paginationService = new PaginationService();
 
 module.exports.all = async (req, res) => {
-    let date = req.query.date || null; 
+    let date = req.query.date || null;
+    let currentPage = req.query.page ? parseInt(req.query.page) : 1;
+    let itemsPerPage = req.query.size || 10;
     try {
-        let fixtures = await fixtureService.findAll(date);
+        let fixtures = await fixtureService.findAll(date, currentPage, itemsPerPage);
+        let paginatedFixtures = await paginationService.paginate(fixtures, currentPage, itemsPerPage, fixtures.length);
         res.status(200).json(
             {
                 "statusCode": 200,
                 "message": "OK",
                 "data": {
-                    "results": fixtures
+                    "results": paginatedFixtures['items'],
+                    "currentPage": paginatedFixtures['currentPage'],
+                    "totalPages": paginatedFixtures['totalPages'],
+                    "totalItems": paginatedFixtures['totalItems'],
+                    'nextPage': paginatedFixtures['nextPage'],
+                    'previousPage': paginatedFixtures['previousPage']
                 },
                 "errors": []
             }

@@ -9,16 +9,17 @@ class FixtureService {
         this.models = sequelize.models;
     }
 
-    async findAll(date) {
+    async findAll(date, currentPage, itemsPerPage) {
         let fixtures = [];
         let allFixtures;
+
 
         if (date) {
             allFixtures = await this.models.Fixture.findAll({
                 where: {
                     date: date
                 }
-            });
+            })
         } else {
             allFixtures = await this.models.Fixture.findAll();
         }
