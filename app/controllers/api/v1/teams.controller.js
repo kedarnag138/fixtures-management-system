@@ -1,14 +1,12 @@
 'use strict';
 
-const db = require('../../../models/index');
-const Team = db.teams;
 const TeamService = require('../../../services/team.service');
 const Models = require('../../../models/index');
 const teamValidator = require('../../../validators/team.validator');
 
 const teamService = new TeamService(Models.sequelize);
 
-module.exports.all = async (req, res) => {
+module.exports.all = async (_req, res) => {
     try {
         let teams = await teamService.findAll();
         res.status(200).json(

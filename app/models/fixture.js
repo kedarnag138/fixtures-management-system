@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.STRING,
     time: DataTypes.STRING,
     referee: DataTypes.STRING,
-    matchStatus: DataTypes.STRING,
+    matchStatus: DataTypes.STRING, // 'upcoming', 'live', 'finished'
     venue: DataTypes.STRING
   }, {
     sequelize,
