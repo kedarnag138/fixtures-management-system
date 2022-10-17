@@ -12,7 +12,7 @@ class TeamService {
 
     async createTeam(team) {
         let newTeam = this.models.Team.build(team);
-        return newTeam.save();
+        return await newTeam.save();
     }
 
     async bulkCreate(teams) {

@@ -1,8 +1,5 @@
 'use strict';
 
-const { sequelize } = require("../models");
-const fixture = require("../models/fixture");
-
 class FixtureService {
     constructor(sequelize) {
         this.client = sequelize;
@@ -38,7 +35,7 @@ class FixtureService {
     async createFixture(fixture) {
         fixture.matchStatus = fixture.matchStatus || 'upcoming';
         let newFixture = this.models.Fixture.build(fixture);
-        return newFixture.save();
+        return await newFixture.save();
     }
 
     async bulkCreate(fixtures) {
