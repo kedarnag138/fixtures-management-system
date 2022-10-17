@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server.js",
-    "build": "sequelize db:migrate --env dev -m --app fixtures-management-system"
+    "build": "sequelize db:migrate --env dev"
   },
   "jest": {
     "testEnvironment": "node",
