@@ -19,11 +19,6 @@ module.exports = {
 		"password": "password"
 	},
 	"dev": {
-		"database": "heroku_51951fb98ebdf24",
-		"host": "eu-cdbr-west-03.cleardb.net",
-		"dialect": "mysql",
-		"port": 3306,
-		"username": "b47f9a1030846a",
-		"password": "bbb0a210"
+		"use_env_variable": "DATABASE_URL"
 	}
 }

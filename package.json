@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "sequelize db:migrate --env dev -m --app fixtures-management-system"
   },
   "jest": {
     "testEnvironment": "node",
