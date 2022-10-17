@@ -24,7 +24,6 @@ module.exports = {
 		"dialect": "mysql",
 		"port": 3306,
 		"username": "b47f9a1030846a",
-		"password": "bbb0a210",
-
+		"password": "bbb0a210"
 	}
 }
