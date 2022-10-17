@@ -4,7 +4,7 @@
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.addColumn('fixtures', 'score', {
-			type: Sequelize.JSON,
+			type: Sequelize.TEXT,
 			defaultValue: []
 		});
 	},

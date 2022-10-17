@@ -56,6 +56,7 @@ class FixtureService {
             });
             liveFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: liveFixture.homeTeamId } }).then((team) => {return team.name});
             liveFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: liveFixture.awayTeamId } }).then((team) => {return team.name});
+            liveFixture.dataValues.score = JSON.parse(liveFixture.score);
             return liveFixture;
         }));
         return this.sortFixtures(liveFixtures);
@@ -70,6 +71,7 @@ class FixtureService {
             });
             upcomingFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: upcomingFixture.homeTeamId } }).then((team) => {return team.name});
             upcomingFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: upcomingFixture.awayTeamId } }).then((team) => {return team.name});
+            upcomingFixture.dataValues.score = JSON.parse(upcomingFixture.score);
             return upcomingFixture;
         }));
         return this.sortFixtures(upcomingFixtures);
@@ -88,6 +90,7 @@ class FixtureService {
             });
             finishedFixture.dataValues.homeTeam = await this.models.Team.findOne({ where: { id: finishedFixture.homeTeamId } }).then((team) => {return team.name});
             finishedFixture.dataValues.awayTeam = await this.models.Team.findOne({ where: { id: finishedFixture.awayTeamId } }).then((team) => {return team.name});
+            finishedFixture.dataValues.score = JSON.parse(finishedFixture.score);
             return finishedFixture;
         }));
         return this.sortFixtures(finishedFixtures);
