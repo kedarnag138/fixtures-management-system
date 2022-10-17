@@ -36,7 +36,7 @@ module.exports.createTeam = async (req, res) => {
     let team = body.team;
 
     try {
-        teamValidator.onCreate(team);
+        await teamValidator.onCreate(team);
         let createdTeam = await teamService.createTeam(team);
         res.status(201).send(
             {

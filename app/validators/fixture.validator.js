@@ -5,7 +5,6 @@ const Models = require('../models/index');
 
 module.exports.onCreate = async (fixture) => {
     this.models = Models.sequelize.models;
-
     let errors = [];
 
     if (!fixture.homeTeamId) {

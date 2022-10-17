@@ -1,8 +1,10 @@
 'use strict';
 
 const { ValidationError } = require("sequelize");
+const Models = require('../models/index');
 
-module.exports.onCreate = (team) => {
+module.exports.onCreate = async (team) => {
+    this.models = Models.sequelize.models;
     let errors = [];
 
     if (!team.name) {
@@ -27,6 +29,12 @@ module.exports.onCreate = (team) => {
 
     if (!team.league) {
         errors.push('Team league is required');
+    }
+
+    let existingTeam = await this.models.Team.findOne({ where: { name: team.name } });
+
+    if (existingTeam) {
+        errors.push('Team name already exists');
     }
 
     if (errors.length > 0) {
