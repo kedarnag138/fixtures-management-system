@@ -34,6 +34,7 @@ class FixtureService {
 
     async createFixture(fixture) {
         fixture.matchStatus = fixture.matchStatus || 'upcoming';
+        fixture.score = fixture.score || { homeTeam: 0, awayTeam: 0 };
         let newFixture = this.models.Fixture.build(fixture);
         return await newFixture.save();
     }

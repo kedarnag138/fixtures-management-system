@@ -2,7 +2,7 @@
 
 module.exports = {
 	"development": {
-		"database": "fixtures_management_development",
+		"database": "fixtures_management",
 		"host": "127.0.0.1",
 		"dialect": "mysql",
 		"port": 3306,
