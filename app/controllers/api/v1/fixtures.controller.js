@@ -9,9 +9,9 @@ const fixtureService = new FixtureService(Models.sequelize);
 const paginationService = new PaginationService();
 
 module.exports.all = async (req, res) => {
-    let date = req.query.date || null;
-    let currentPage = req.query.page ? parseInt(req.query.page) : 1;
-    let itemsPerPage = req.query.size || 10;
+    let date = (req.query && req.query.date) ? req.query.date : null;
+    let currentPage = (req.query && req.query.page) ? parseInt(req.query.page) : 1;
+    let itemsPerPage = (req.query && req.query.size) ? req.query.size : 10;
     try {
         let fixtures = await fixtureService.findAll(date, currentPage, itemsPerPage);
         let paginatedFixtures = await paginationService.paginate(fixtures, currentPage, itemsPerPage, fixtures.length);

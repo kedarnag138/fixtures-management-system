@@ -11,12 +11,35 @@ class TeamService {
     }
 
     async createTeam(team) {
-        let newTeam = this.models.Team.build(team);
+        let newTeam = await this.models.Team.build(team);
         return await newTeam.save();
     }
 
     async bulkCreate(teams) {
-        return this.models.Team.bulkCreate(teams);
+        return await this.models.Team.bulkCreate(teams);
+    }
+
+    async deleteRecentTeam() {
+        let team = await this.models.Team.findOne({
+            order: [['createdAt', 'DESC']]
+        });
+        return await team.destroy();
+    }
+
+    async deleteTeam(id) {
+        let team = await this.models.Team.findOne({
+            where: {
+                id: id
+            }
+        });
+        return await team.destroy();
+    }
+
+    async deleteAllTeams() {
+        return await this.models.Team.destroy({
+            where: {},
+            truncate: true
+        });
     }
 }
 

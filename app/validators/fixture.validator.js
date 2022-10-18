@@ -31,6 +31,20 @@ module.exports.onCreate = async (fixture) => {
         errors.push('Venue is required');
     }
 
+    if (fixture.homeTeamId) {
+        let homeTeam = await this.models.Team.findOne({ where: { id: fixture.homeTeamId } });
+        if (!homeTeam) {
+            errors.push('Home team does not exist');
+        }
+    }
+
+    if (fixture.awayTeamId) {
+        let awayTeam = await this.models.Team.findOne({ where: { id: fixture.awayTeamId } });
+        if (!awayTeam) {
+            errors.push('Away team does not exist');
+        }
+    }
+
     let existingFeature = await this.models.Fixture.findOne({ where: { homeTeamId: fixture.homeTeamId, awayTeamId: fixture.awayTeamId, date: fixture.date } });
 
     if (existingFeature) {

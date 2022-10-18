@@ -21,9 +21,19 @@ class FixtureFactory {
             time: getRandomTimeInString(),
             referee: getRandomFootballRefereeName(),
             venue: homeTeam.location,
-            matchStatus: getRandomMatchStatus()
+            matchStatus: getRandomMatchStatus(),
+            score: { homeTeam: 0, awayTeam: 0 }
         };
         return await this.models.Fixture.create(fixture);
+    }
+
+    async createFixtures(numberOfFixtures) {
+        let fixtures = [];
+        for (let i = 0; i < numberOfFixtures; i++) {
+            let fixture = await this.createFixture();
+            fixtures.push(fixture);
+        }
+        return fixtures;
     }
 }
 

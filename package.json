@@ -2,9 +2,9 @@
   "name": "fixtures-management-system",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test _mocha tests/**/*.spec.js --recursive",
     "start": "nodemon server.js",
     "build": "sequelize db:migrate --env dev"
   },
@@ -29,9 +29,10 @@
   },
   "devDependencies": {
     "http": "*",
-    "jest": "^29.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.1",
-    "supertest": "^6.3.0"
+    "sinon": "^14.0.1"
   }
 }

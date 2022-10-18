@@ -16,9 +16,18 @@ class TeamFactory {
                 manager: getRandomFootballManagerName(),
                 capacity: getRandomFootballStadiumCapacity(),
                 league: 'Premier League',
+                stadium: getRandomFootballStadiumName()
             }
         });
         return newTeam;
+    }
+
+    async createTeams(count) {
+        let teams = [];
+        for (let i = 0; i < count; i++) {
+            teams.push(await this.createTeam());
+        }
+        return teams;
     }
 }
 

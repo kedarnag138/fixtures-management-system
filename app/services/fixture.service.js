@@ -43,6 +43,20 @@ class FixtureService {
         return this.models.Fixture.bulkCreate(fixtures);
     }
 
+    async deleteRecentFixture() {
+        let fixture = await this.models.Fixture.findOne({
+            order: [['createdAt', 'DESC']]
+        });
+        return await fixture.destroy();
+    }
+
+    async deleteAllFixtures() {
+        return await this.models.Fixture.destroy({
+            where: {},
+            truncate: true
+        });
+    }
+
     async getLiveFixtures(fixtures) {
         let liveFixtures = await Promise.all(fixtures.map(async (fixture) => {
             let liveFixture = await this.models.Fixture.findOne({
